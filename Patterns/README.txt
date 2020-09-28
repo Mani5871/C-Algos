@@ -1,0 +1,1 @@
+This folder is to add popular patterns implementing in C
