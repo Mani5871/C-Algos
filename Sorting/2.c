@@ -1,3 +1,4 @@
+master
 
 #include<stdio.h>
 main()
@@ -26,3 +27,4 @@ main()
         for(i=0;i<n;i++)
                 printf("%d ",a[i]);
 }
+master
