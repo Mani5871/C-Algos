@@ -1,7 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void bfs(vector<int> adj[], int v, int n)
+void addEdge(vector<pair<int, int>> adj[], int u, int v, int wt)
+{
+    adj[u].push_back(make_pair(v, wt));
+    adj[v].push_back(make_pair(u, wt));
+}
+
+
+void bfs(vector<pair<int, int>> adj[], int v, int n)
 {
     queue<int> q;
     vector<bool>visit(n, false);
@@ -16,17 +23,17 @@ void bfs(vector<int> adj[], int v, int n)
         cout<<node<<" ";
        
         for(auto i = adj[node].begin(); i != adj[node].end(); i++)
-            if(!visit[*i])
+            if(!visit[i -> first])
             {
-                visit[*i] = true;
-                q.push(*i);
+                visit[i -> first] = true;
+                q.push(i -> first);
             }
     }
    
 }
 
 int main() {
-    vector<int> adj[4];
+    vector<pair<int, int>> adj[10];
     addEdge(adj, 0, 1, 10);
     addEdge(adj, 0, 4, 20);
     addEdge(adj, 1, 2, 30);
@@ -34,8 +41,6 @@ int main() {
     addEdge(adj, 1, 4, 50);
     addEdge(adj, 2, 3, 60);
     addEdge(adj, 3, 4, 70);
-    print(adj, 4);
-    dfs(adj, 2, 4);
-    cout<<endl;
-    bfs(adj, 2, 4);
+    
+    bfs(adj, 0, 4);
 }
