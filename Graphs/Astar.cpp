@@ -4,7 +4,6 @@ using namespace std;
 unordered_map<char, int>heru;
 unordered_map<char, int>path;
 vector<char>order;
-vector<vector<char>>final_path;
 typedef pair<int, char>pi;
 int cost;
 
